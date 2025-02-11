@@ -3,7 +3,11 @@ import express from 'express'
 const app = express();
 // creating data of student
 const Studnet = [
-{ id : 1 , name : "Rupesh" , City : "Pune"}
+{ id : 1 , name : "Rupesh" , City : "Pune"},
+{ id : 2 , name : "Nilesh" , City : "Nanded"},
+{ id : 1 , name : "Rupesh" , City : "Pune"},
+
+
 ]
 
 // app listing on something
