@@ -2,7 +2,7 @@ import express from 'express'
 
 const app = express();
 // creating data of student
-const Studnets = [
+const  Students = [
 { id : 1 , name : "Rupesh" , City : "Pune"},
 { id : 2 , name : "Nilesh" , City : "Nanded"},
 { id : 3 , name : "Pankaj" , City : "Goa"},
@@ -16,12 +16,13 @@ const Studnets = [
 app.get("/Students",(req, res)=>{
     console.log(req.query);
     const {City} = req.query;
-    const FiltredStudent = Studnets.filter((Studnet)=>{
-        if(Studnets.City == City)   
+    const FiltredStudents =  Students.filter((Studnet)=>{
+        if( Students.City == City)   
         return Studnet; })
     res.json({
         sucess : true,
-        data :Studnets,
+        data : Students,
+        data : FiltredStudents,
         message : `Student fetch sucessfully  `,
     });
 })
