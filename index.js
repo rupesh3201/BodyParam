@@ -17,7 +17,7 @@ app.get("/Students",(req, res)=>{
     console.log(req.query);
     const {City} = req.query;
     const FiltredStudents =  Students.filter((Studnet)=>{
-        if( Students.City == City)   
+        if( Studnet.City === City)   
         return Studnet; })
     res.json({
         sucess : true,
