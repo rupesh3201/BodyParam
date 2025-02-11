@@ -6,7 +6,7 @@ const Studnet = [
 { id : 1 , name : "Rupesh" , City : "Pune"},
 { id : 2 , name : "Nilesh" , City : "Nanded"},
 { id : 3 , name : "Pankaj" , City : "Goa"},
-{ id : 1 , name : "Rupesh" , City : "Pune"},
+{ id : 1 , name : "Sandip" , City : "Hingoli"},
 
 
 
