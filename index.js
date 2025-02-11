@@ -11,7 +11,7 @@ app.get("/Student",(req, res)=>{
         message : `Studnt fetch sucessfully  `,
     });
 })
-const port = 5001;
+const Port = 5001;
 app.listen(Port,()=>
 {
     console.log(`server is running on ${Port}`);
