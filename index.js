@@ -20,7 +20,13 @@ app.get("/Students",(req, res)=>{
         if( !City)   
             return true;
         if( Studnet.City === City)   
-        return Studnet; })
+        return Studnet; 
+        if ( !id)
+            return true;
+        if( Studnet.id === id)
+            return Studnet;
+    })
+
     res.json({
         sucess : true,
         data : Students,
