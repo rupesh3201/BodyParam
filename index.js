@@ -15,9 +15,13 @@ const Studnets = [
 // app listing on something
 app.get("/Students",(req, res)=>{
     console.log(req.query);
+    const {City} = req.query;
+    const FiltredStudent = Studnets.filter((Studnet)=>{
+        if(Studnets.City==City)   
+        return Studnet; })
     res.json({
         sucess : true,
-        data : Studnet,
+        data : FiltredStudent,
         message : `Student fetch sucessfully  `,
     });
 })
