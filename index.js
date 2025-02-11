@@ -2,7 +2,9 @@ import express from 'express'
 
 const app = express();
 // creating data of student
-const Studnet = ["Rupesh", "Nilesh", "Harish"];
+const Studnet = [
+{ id : 1 , name : "Rupesh" , City : "Pune"}
+]
 
 // app listing on something
 app.get("/Student",(req, res)=>{
