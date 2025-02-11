@@ -17,11 +17,11 @@ app.get("/Students",(req, res)=>{
     console.log(req.query);
     const {City} = req.query;
     const FiltredStudent = Studnets.filter((Studnet)=>{
-        if(Studnets.City==City)   
+        if(Studnets.City == City)   
         return Studnet; })
     res.json({
         sucess : true,
-        data : FiltredStudent,
+        data :Studnets,
         message : `Student fetch sucessfully  `,
     });
 })
