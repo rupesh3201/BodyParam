@@ -41,8 +41,8 @@ app.get("/Students",(req, res)=>{
     });
 })
 
-app.get("/Students/1",(req, res)=>{
-    console.log(req.query);
+app.get("/Students/:id",(req, res)=>{
+    console.log(req.params);
     const {City} = req.query;
     const Student =  Students.find((Studnet)=>{
         if( Students.id==1)   
