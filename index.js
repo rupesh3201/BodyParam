@@ -1,6 +1,8 @@
 import express from 'express'
 
 const app = express();
+app.use(express.json) 
+// to collect data from body which send by post 
 // creating data of student
 const  Students = [
 { id : 1 , Name : "Rupesh" , City : "Pune"},
@@ -54,8 +56,12 @@ app.get("/Students/:id",(req, res)=>{
 
         })
 })
-app.post("/Students/:id",(req, res)=>{})
-
+app.post("/Students",(req, res)=>{
+console.log(req.body)
+res.json({
+    sucess: true ,
+})
+})
 const Port = 5002;
 app.listen(Port,()=>
 {
