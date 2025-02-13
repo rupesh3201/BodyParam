@@ -54,7 +54,7 @@ app.get("/Students/:id",(req, res)=>{
 
         })
 })
-app.post("/Students")
+app.post("/Students/:id",(req, res)=>{})
 
 const Port = 5002;
 app.listen(Port,()=>
