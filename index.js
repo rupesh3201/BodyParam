@@ -1,78 +1,51 @@
-import express from 'express'
+import express from 'express';
 
 const app = express();
-app.use(express.json) 
-// to collect data from body which send by post 
-// creating data of student
-const  Students = [
-{ id : 1 , Name : "Rupesh" , City : "Pune"},
-{ id : 2 , Name : "Nilesh" , City : "Nanded"},
-{ id : 3 , Name : "Pankaj" , City : "Goa"},
-{ id : 4 , Name : "Sandip" , City : "Hingoli"},
+app.use(express.json()); // Fix: Call express.json() as a function
 
+// Creating data of students
+const Students = [
+    { id: 1, Name: "Rupesh", City: "Pune" },
+    { id: 2, Name: "Nilesh", City: "Nanded" },
+    { id: 3, Name: "Pankaj", City: "Goa" },
+    { id: 4, Name: "Sandip", City: "Hingoli" },
+];
 
+// Endpoint to add a student via POST request
+app.post("/Students", (req, res) => {
+    console.log(req.body);
 
-]
+    const { id, Name, City } = req.body;
 
-// app listing on something
-app.get("/Students",(req, res)=>{
-    console.log(req.query);
-    const {City} = req.query;
-    const FiltredStudents =  Students.filter((Studnet)=>{
-        if( !City)   
-            return true;
-        if( Studnet.City === City)   
-        return Studnet; 
-        if ( !id)
-            return true;
-        if( Studnet.id === id)
-            return Studnet;
-        if ( !Name)
-            return true;
-        if( Studnet.Name === Name)
-            return Studnet;
-    })
-
-
-
-    res.json({
-        sucess : true,
-        data : Students,
-        data : FiltredStudents,
-        message : `Student fetch sucessfully  `,
-    });
-})
-
-app.get("/Students/:id",(req, res)=>{
-    const  { id , name, city } = req.body;
-    const student = {
-        id , 
-        name,
-        city
+    // Validation: Ensure all fields are provided
+    if (!id || !Name || !City) {
+        return res.status(400).json({
+            success: false,
+            message: "Please provide id, Name, and City.",
+        });
     }
-    Students.push(student);
-    console.log(req.params);
-    // const {City} = req.query;
-    // const Student =  Students.find((Studnet)=>{
-    //     if( Students.id==1)   
-    //         return true;})
-        res.json({
-            sucess : true,
-            data : student,
-            msg :"Student find sucessfully"
 
-        })
-})
-app.post("/Students",(req, res)=>{
-console.log(req.body)
-res.json({
-    sucess: true ,
-})
-})
-const Port = 5002;
-app.listen(Port,()=>
-{
-    console.log(`server is running on ${Port}`);
+    // Check if ID already exists
+    const existingStudent = Students.find(student => student.id === id);
+    if (existingStudent) {
+        return res.status(400).json({
+            success: false,
+            message: "Student with this ID already exists.",
+        });
+    }
+
+    // Add new student
+    const student = { id, Name, City };
+    Students.push(student);
+
+    res.status(201).json({
+        success: true,
+        data: student,
+        message: "Student added successfully",
+    });
 });
 
-
+const Port = 5002;
+app.listen(Port, () => {
+    console.log(`Server is running on port ${Port}`);
+});
