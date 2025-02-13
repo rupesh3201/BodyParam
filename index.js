@@ -50,7 +50,7 @@ app.get("/Students/:id",(req, res)=>{
         res.json({
             sucess : true,
             data : Student,
-            msg :"Student find sucess"
+            msg :"Student find sucessfully"
 
         })
 })
