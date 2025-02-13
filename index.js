@@ -31,12 +31,28 @@ app.get("/Students",(req, res)=>{
             return Studnet;
     })
 
+
+
     res.json({
         sucess : true,
         data : Students,
         data : FiltredStudents,
         message : `Student fetch sucessfully  `,
     });
+})
+
+app.get("/Students/1",(req, res)=>{
+    console.log(req.query);
+    const {City} = req.query;
+    const Student =  Students.find((Studnet)=>{
+        if( Students.id==1)   
+            return true;})
+        res.json({
+            sucess : true,
+            data : Student,
+            msg :"Student find sucess"
+
+        })
 })
 const Port = 5002;
 app.listen(Port,()=>
