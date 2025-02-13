@@ -44,14 +44,21 @@ app.get("/Students",(req, res)=>{
 })
 
 app.get("/Students/:id",(req, res)=>{
+    const  { id , name, city } = req.body;
+    const student = {
+        id , 
+        name,
+        city
+    }
+    Students.push(student);
     console.log(req.params);
-    const {City} = req.query;
-    const Student =  Students.find((Studnet)=>{
-        if( Students.id==1)   
-            return true;})
+    // const {City} = req.query;
+    // const Student =  Students.find((Studnet)=>{
+    //     if( Students.id==1)   
+    //         return true;})
         res.json({
             sucess : true,
-            data : Student,
+            data : student,
             msg :"Student find sucessfully"
 
         })
