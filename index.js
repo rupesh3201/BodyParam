@@ -11,6 +11,7 @@ const Students = [
     { id: 4, Name: "Sandip", City: "Hingoli" },
 ];
 //  ?name=rupesh query  , 
+//  : path  params /4
 app.get("/Students", (req, res) => {
     res.send(Students);
 })
