@@ -16,7 +16,8 @@ const Students = [
 app.get("/Students", (req, res) => {
     res.send(Students);
 })
-app.post("/Teacher",(req,res)=>{
+app.post("/Teacher/test",(req,res)=>{
+    console.log(req.headers);
     res.send({
         success :"true"
     })
