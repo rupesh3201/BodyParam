@@ -16,6 +16,11 @@ const Students = [
 app.get("/Students", (req, res) => {
     res.send(Students);
 })
+app.post("/Teacher",(req,res)=>{
+    res.send({
+        success :"true"
+    })
+})
 // Endpoint to add a student via POST request
 app.post("/Students", (req, res) => {
     console.log(req.body);
