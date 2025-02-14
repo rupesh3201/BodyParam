@@ -12,6 +12,7 @@ const Students = [
 ];
 //  ?name=rupesh query  , 
 //  : path  params /4
+// body raw json with post req
 app.get("/Students", (req, res) => {
     res.send(Students);
 })
