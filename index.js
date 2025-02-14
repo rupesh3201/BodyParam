@@ -1,7 +1,7 @@
 import express from 'express';
 
 const app = express();
-app.use(express.json()); // Fix: Call express.json() as a function
+app.use(express.json()); // Fix: Call express.json() as a function must use 
 
 // Creating data of students
 const Students = [
@@ -10,7 +10,9 @@ const Students = [
     { id: 3, Name: "Pankaj", City: "Goa" },
     { id: 4, Name: "Sandip", City: "Hingoli" },
 ];
-
+app.get("/Students", (req, res) => {
+    res.send(Students);
+})
 // Endpoint to add a student via POST request
 app.post("/Students", (req, res) => {
     console.log(req.body);
