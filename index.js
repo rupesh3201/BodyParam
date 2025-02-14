@@ -10,6 +10,7 @@ const Students = [
     { id: 3, Name: "Pankaj", City: "Goa" },
     { id: 4, Name: "Sandip", City: "Hingoli" },
 ];
+//  ?name=rupesh query  , 
 app.get("/Students", (req, res) => {
     res.send(Students);
 })
